@@ -18,7 +18,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar">
+    <div className="navbar bg-base-300 font-bold">
       <div className="navbar-start">
         <button
           className="btn btn-ghost normal-case text-xs sm:text-sm md:text-xl text-primary"
