@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../Shared/Footer/Footer';
 import Navbar from '../Shared/Navbar/Navbar';
 
 const MainLayout = ({ children }) => {
@@ -6,6 +7,7 @@ const MainLayout = ({ children }) => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       {children}
+      <Footer />
     </div>
   );
 };
