@@ -8,6 +8,8 @@ import { useForm } from 'react-hook-form';
 import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from 'react-icons/hi';
 
 const SignUp = () => {
+  const [show, setShow] = useState({ password: false, cpassword: false });
+
   const {
     register,
     formState: { errors },
@@ -19,21 +21,24 @@ const SignUp = () => {
   let errorMessage;
 
   const onSubmit = async () => {
-    const name = watch('name').toUpperCase();
+    const username = watch('username').toLowerCase().trim();
     const email = watch('email');
     const password = watch('password');
+    const confirmPassword = watch('confirmPassword');
 
-    const newUser = {
-      name: name,
-      email: email,
-      password: password,
-    };
-
-    console.log(newUser);
-    reset();
+    if (password !== confirmPassword) {
+      console.log('Something went wrong!');
+    } else {
+      const newUser = {
+        username: username,
+        email: email,
+        password: password,
+      };
+      console.log(newUser);
+      reset();
+    }
   };
 
-  const [show, setShow] = useState({ password: false, cpassword: false });
   return (
     <>
       <Head>
@@ -54,17 +59,17 @@ const SignUp = () => {
                 <div className="form-control mb-4">
                   <label className="label">
                     <span className="label-text text-primary font-bold">
-                      Name
+                      Username
                     </span>
                   </label>
                   <input
                     type="text"
-                    placeholder="Full Name"
+                    placeholder="Username"
                     className="input input-bordered input-primary"
-                    {...register('name', {
+                    {...register('username', {
                       required: {
                         value: true,
-                        message: 'Full Name is required',
+                        message: 'Username is required',
                       },
                       // maxLength: {
                       //   value: 20,
@@ -143,6 +148,38 @@ const SignUp = () => {
                     )}
                     {errors.password?.type === 'minLength' && (
                       <span>{errors?.password?.message}</span>
+                    )}
+                  </p>
+                </div>
+
+                <div className="form-control mb-4">
+                  <label className="label">
+                    <span className="label-text text-primary font-bold">
+                      Confirm Password
+                    </span>
+                  </label>
+                  <input
+                    type="password"
+                    placeholder="Confirm password"
+                    className="input input-bordered input-primary"
+                    {...register('confirmPassword', {
+                      required: {
+                        value: true,
+                        message: 'You need to confirm your password',
+                      },
+                      minLength: {
+                        value: 6,
+                        message: 'Password must be at least six letters',
+                      },
+                    })}
+                    style={{ backgroundColor: 'white' }}
+                  />
+                  <p className="text-red-500 font-semibold">
+                    {errors.confirmPassword?.type === 'required' && (
+                      <span>{errors?.confirmPassword?.message}</span>
+                    )}
+                    {errors.confirmPassword?.type === 'minLength' && (
+                      <span>{errors?.confirmPassword?.message}</span>
                     )}
                   </p>
                 </div>
