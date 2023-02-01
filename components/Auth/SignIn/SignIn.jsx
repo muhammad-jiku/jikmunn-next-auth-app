@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import SocialSignIn from '../SocialSignIn/SocialSignIn';
 
 const SignIn = () => {
   const {
@@ -127,7 +128,9 @@ const SignIn = () => {
                     </Link>
                   </p>
                 </div>
-              </form>
+              </form>{' '}
+              <div className="divider">OR</div>
+              <SocialSignIn />
             </div>
           </div>
         </div>

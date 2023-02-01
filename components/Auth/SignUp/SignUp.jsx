@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { HiAtSymbol, HiFingerPrint, HiOutlineUser } from 'react-icons/hi';
+import SocialSignIn from '../SocialSignIn/SocialSignIn';
 
 const SignUp = () => {
   const [show, setShow] = useState({ password: false, cpassword: false });
@@ -201,7 +202,9 @@ const SignUp = () => {
                     </Link>
                   </p>
                 </div>
-              </form>
+              </form>{' '}
+              <div className="divider">OR</div>
+              <SocialSignIn />
             </div>
           </div>
         </div>
