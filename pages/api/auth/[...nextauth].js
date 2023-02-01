@@ -12,12 +12,6 @@ export const authOptions = {
   providers: [
     // ...add more providers here
     CredentialsProvider({
-      // The name to display on the sign in form (e.g. "Sign in with...")
-      // name: 'Credentials',
-      // credentials: {
-      //   username: { label: 'Username', type: 'text', placeholder: 'jsmith' },
-      //   password: { label: 'Password', type: 'password' },
-      // },
       async authorize(credentials, req) {
         // Add logic here to look up the user from the credentials supplied
         databaseConnect();
@@ -29,7 +23,10 @@ export const authOptions = {
           throw new Error('Invalid Email or Password');
         }
 
-        const isPasswordMatched = await bcrypt.compare(password, user.password);
+        const isPasswordMatched = await bcrypt.compare(
+          password,
+          user?.password
+        );
 
         if (!isPasswordMatched) {
           throw new Error('Invalid Email or Password');
