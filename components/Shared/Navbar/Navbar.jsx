@@ -15,6 +15,9 @@ const Navbar = () => {
       <li>
         <Link href={`/sign-up`}>Sign up</Link>
       </li>
+      <li>
+        <button className="btn btn-primary">Sign Out</button>
+      </li>
     </>
   );
   return (
@@ -24,8 +27,10 @@ const Navbar = () => {
           className="btn btn-ghost normal-case text-xs sm:text-sm md:text-xl text-primary"
           //   onClick={() => navigate('/')}
         >
-          {/* <FontAwesomeIcon icon={faCode} className="mr-2" size="lg" />{' '} */}
-          <span className="text-primary">Jikmunn Next Auth</span>
+          <Link href={`/`}>
+            {/* <FontAwesomeIcon icon={faCode} className="mr-2" size="lg" />{' '} */}
+            <span className="text-primary">Jikmunn Next Auth</span>
+          </Link>
         </button>
       </div>
       <div className="navbar-end">
