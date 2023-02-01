@@ -3,53 +3,136 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const SignIn = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    watch,
+    reset,
+  } = useForm();
+
+  let errorMessage;
+
+  const onSubmit = async () => {
+    const email = watch('email');
+    const password = watch('password');
+
+    const oldUser = {
+      email: email,
+      password: password,
+    };
+
+    console.log(oldUser);
+    reset();
+  };
+
   return (
-    <div>
+    <>
       <Head>
         <title>Sign In</title>
       </Head>
 
-      <section className="w-3/4 mx-auto flex flex-col gap-10">
-        <div className="title">
-          <h1 className="text-gray-800 text-4xl font-bold py-4">Explore</h1>
-          <p className="w-3/4 mx-auto text-gray-400">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores,
-            officia?
-          </p>
+      <div className="hero min-h-screen">
+        <div className="hero-content flex-col lg:flex-row-reverse">
+          {/* <div className="text-center lg:text-left">
+            <h1 className="text-5xl font-bold">Login now!</h1>
+            <p className="py-6">
+              Welcome to the Jikmunn Next Authentication. Here you can track your billing
+              services cost. So, Login now to start your journey
+            </p>
+          </div> */}
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
+            <div className="card-body">
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="form-control mb-4">
+                  <label className="label">
+                    <span className="label-text text-primary font-bold">
+                      Email
+                    </span>
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="email"
+                    className="input input-bordered input-primary"
+                    {...register('email', {
+                      required: {
+                        value: true,
+                        message: 'Email is required',
+                      },
+                      pattern: {
+                        value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                        message: 'Invalid Email',
+                      },
+                    })}
+                    style={{ backgroundColor: 'white' }}
+                  />
+                  <p className="text-red-500 font-semibold">
+                    {errors.email?.type === 'required' && (
+                      <span>{errors?.email?.message}</span>
+                    )}
+                    {errors.email?.type === 'pattern' && (
+                      <span>{errors?.email?.message}</span>
+                    )}
+                  </p>
+                </div>
+                <div className="form-control mb-4">
+                  <label className="label">
+                    <span className="label-text text-primary font-bold">
+                      Password
+                    </span>
+                  </label>
+                  <input
+                    type="password"
+                    placeholder="password"
+                    className="input input-bordered input-primary"
+                    {...register('password', {
+                      required: {
+                        value: true,
+                        message: 'Password is required',
+                      },
+                      minLength: {
+                        value: 6,
+                        message: 'Password must be at least six letters',
+                      },
+                    })}
+                    style={{ backgroundColor: 'white' }}
+                  />
+                  <p className="text-red-500 font-semibold">
+                    {errors.password?.type === 'required' && (
+                      <span>{errors?.password?.message}</span>
+                    )}
+                    {errors.password?.type === 'minLength' && (
+                      <span>{errors?.password?.message}</span>
+                    )}
+                  </p>
+                </div>
+                <div className="form-control mt-6">
+                  {errorMessage}
+                  <input
+                    type="submit"
+                    className="btn btn-primary text-white uppercase"
+                    value="Login"
+                  />{' '}
+                  <p className="text-center font-bold">
+                    New here?{' '}
+                    <Link href={`/sign-up`}>
+                      {' '}
+                      <span className="text-primary cursor-pointer">
+                        {' '}
+                        sign up now!
+                      </span>
+                    </Link>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-
-        {/* form */}
-        <form className="flex flex-col gap-5">
-          <div className="input-group">
-            <input type="email" name="email" placeholder="Email" />
-          </div>
-          <div className="input-group">
-            <input type="password" name="password" placeholder="password" />
-          </div>
-
-          {/* login buttons */}
-          <div className="input-button">
-            <button type="submit">Sign In</button>
-          </div>
-          <div className="input-button">
-            <button type="submit">Sign In with Google</button>
-          </div>
-          <div className="input-button">
-            <button type="submit">Sign In with Github</button>
-          </div>
-        </form>
-
-        {/* bottom */}
-        <p className="text-center text-gray-400 ">
-          don&apos;t have an account yet?{' '}
-          <Link href={`/sign-up`}>
-            <span className="text-blue-700">Sign Up</span>
-          </Link>
-        </p>
-      </section>
-    </div>
+      </div>
+    </>
   );
 };
 
