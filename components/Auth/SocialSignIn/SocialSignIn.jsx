@@ -18,6 +18,9 @@ const SocialSignIn = () => {
   };
   const handleGithubLogin = async () => {
     console.log('github sign in');
+    await signIn('github', {
+      callbackUrl: 'http://localhost:3000/',
+    });
   };
   return (
     <div>
