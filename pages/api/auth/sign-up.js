@@ -26,7 +26,7 @@ export default async function handler(req, res) {
 
     const savedUser = await newUser.save();
 
-    console.log("hola "savedUser);
+    // console.log('saved user ', savedUser);
 
     res.status(200).json({
       message: 'User added successfully!!',
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
       //    accessToken: token,
     });
   } catch (err) {
-    // console.log("hola "err)
+    // console.log(err)
     res.status(500).json({ message: 'Something went wrong' });
   }
 }
