@@ -24,11 +24,9 @@ const HomePage = () => {
                 {' '}
                 Please Sign in to see welcome message
               </h1>
-              <Link href={'/sign-in'}>
-                <button className="btn btn-primary mt-5 px-10 py-1 rounded-sm">
-                  Sign In
-                </button>
-              </Link>
+              <button className="btn btn-primary mx-4 p-4 rounded-sm">
+                <Link href={'/sign-in'}>Sign In</Link>
+              </button>
             </>
           )}
         </div>
