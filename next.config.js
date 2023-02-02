@@ -13,6 +13,10 @@ const nextConfig = {
     //   },
     // ],
   },
+  env: {
+    DB_URI: `mongodb+srv://${process.env.DB_AUTHOR}:${process.env.DB_PASS}@cluster0.nstalsd.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
+    NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
+  },
 };
 
 module.exports = nextConfig;

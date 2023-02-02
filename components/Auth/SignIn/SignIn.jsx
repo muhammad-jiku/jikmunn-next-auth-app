@@ -33,6 +33,7 @@ const SignIn = () => {
         redirect: false,
         email: oldUser?.email,
         password: oldUser?.password,
+        callbackUrl: '/',
       });
 
       if (data) {
