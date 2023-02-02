@@ -17,28 +17,30 @@ const HomePage = () => {
         </>
       ) : (
         <>
-          <main className="container mx-auto text-center py-20">
-            <div className="flex justify-center">
-              {session ? (
-                <>
-                  <h1 className="text-2xl font-bold">
-                    Hello, {session?.user?.email}, We welcome you here!
-                  </h1>
-                </>
-              ) : (
-                <>
-                  <h1 className="text-2xl font-bold">
-                    {' '}
-                    Please Sign in to see welcome message
-                  </h1>
-                  <br />
-                  <button className="btn btn-primary mx-2 px-2 rounded-sm">
-                    <Link href={'/sign-in'}>Sign In</Link>
-                  </button>
-                </>
-              )}
+          <div className="hero min-h-screen">
+            <div className="hero-content text-center">
+              <div className="max-w-md">
+                {session ? (
+                  <>
+                    <h1 className="text-2xl font-bold">
+                      Hello, {session?.user?.email}, We welcome you here!
+                    </h1>
+                  </>
+                ) : (
+                  <>
+                    <h1 className="text-2xl font-bold">
+                      {' '}
+                      Please Sign in to see welcome message
+                    </h1>
+                    <br />
+                    <button className="btn btn-primary text-white font-bold cursor-pointer">
+                      <Link href={'/sign-in'}>Sign In</Link>
+                    </button>
+                  </>
+                )}
+              </div>
             </div>
-          </main>
+          </div>
         </>
       )}
     </div>
