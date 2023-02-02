@@ -14,6 +14,9 @@ const Navbar = () => {
       <li>
         <Link href={`/`}>Home</Link>
       </li>{' '}
+      <li>
+        <Link href={`/dashboard`}>Dashboard</Link>
+      </li>{' '}
       {session ? (
         <>
           <li>
