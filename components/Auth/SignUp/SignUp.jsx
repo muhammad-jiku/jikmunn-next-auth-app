@@ -51,17 +51,17 @@ const SignUp = () => {
         body: JSON.stringify(newUser),
       })
         .then((res) => {
-          // console.log('res ', res);
+          // console.log("hola "'res ', res);
           return res.json();
         })
         .then((data) => {
           if (data) {
-            // console.log('data inside user token ', data);
+            // console.log("hola "'data inside user token ', data);
             // const accessToken = data?.accessToken;
             // localStorage?.setItem('accessToken', accessToken);
             // setSignUpToken(accessToken);
-            console.log(data);
-            console.log(data?.message);
+            console.log('sign up data ', data);
+            console.log('sign up data message', data?.message);
             // toast.success(data?.message);
             reset();
             router.push('/');
@@ -71,7 +71,7 @@ const SignUp = () => {
           }
         })
         .catch((err) => {
-          console.log(err);
+          console.log('sign up err', err);
           // toast.error(err.message);
         });
     }

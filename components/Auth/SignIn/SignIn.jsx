@@ -37,12 +37,12 @@ const SignIn = () => {
       });
 
       if (data) {
-        console.log(data);
+        console.log('signin data', data);
         reset();
         router.push('/');
       }
     } catch (err) {
-      console.log(err);
+      console.log('sign in err', err);
     }
   };
 

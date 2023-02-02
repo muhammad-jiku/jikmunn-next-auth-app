@@ -3,6 +3,7 @@ import databaseConnect from '@/db/util/connectDB';
 import bcrypt from 'bcryptjs';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import GoogleProvider from 'next-auth/providers/google';
 
 export const authOptions = {
   session: {
@@ -22,7 +23,7 @@ export const authOptions = {
         if (!user) {
           throw new Error('Invalid Email or Password!');
         }
-        console.log(user);
+        console.log('hola user ', user);
         const isPasswordMatched = await bcrypt.compare(
           password,
           user?.password
@@ -34,6 +35,10 @@ export const authOptions = {
 
         return user;
       },
+    }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
   pages: {

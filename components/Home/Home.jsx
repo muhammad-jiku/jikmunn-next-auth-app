@@ -7,7 +7,7 @@ import Spinner from '../Shared/Spinner/Spinner';
 
 const HomePage = () => {
   const { data: session, status } = useSession();
-  console.log(session);
+  console.log('session data ', session);
 
   return (
     <div>
