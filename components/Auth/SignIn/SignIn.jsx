@@ -3,6 +3,7 @@
 import { signIn } from 'next-auth/react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import SocialSignIn from '../SocialSignIn/SocialSignIn';
@@ -17,6 +18,7 @@ const SignIn = () => {
   } = useForm();
 
   let errorMessage;
+  const router = useRouter();
 
   const onSubmit = async () => {
     const email = watch('email');
@@ -37,6 +39,7 @@ const SignIn = () => {
       if (data) {
         console.log(data);
         reset();
+        router.push('/');
       }
     } catch (err) {
       console.log(err);

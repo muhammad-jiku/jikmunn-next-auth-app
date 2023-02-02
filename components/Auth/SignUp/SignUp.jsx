@@ -3,6 +3,7 @@
 import axios from 'axios';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -21,6 +22,7 @@ const SignUp = () => {
   } = useForm();
 
   let errorMessage;
+  const router = useRouter();
 
   const onSubmit = async () => {
     const username = watch('username')
@@ -62,6 +64,7 @@ const SignUp = () => {
             console.log(data?.message);
             // toast.success(data?.message);
             reset();
+            router.push('/');
           } else {
             console.log('Something went wrong!');
             // toast.error('Something went wrong!');

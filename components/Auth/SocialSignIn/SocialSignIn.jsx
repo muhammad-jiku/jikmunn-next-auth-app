@@ -4,8 +4,11 @@ import React from 'react';
 import googleLogo from '../../../assets/images/google.png';
 import githubLogo from '../../../assets/images/github.png';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const SocialSignIn = () => {
+  const router = useRouter();
+
   const handleGoogleLogin = async () => {
     console.log('google sign in');
   };
