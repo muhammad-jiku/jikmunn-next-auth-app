@@ -28,10 +28,10 @@ const Navbar = () => {
       ) : (
         <>
           <li>
-            <Link href={`/sign-in`}>Sign in</Link>
+            <Link href={`/sign-in`}>Sign In</Link>
           </li>
           <li>
-            <Link href={`/sign-up`}>Sign up</Link>
+            <Link href={`/sign-up`}>Sign Up</Link>
           </li>
         </>
       )}
