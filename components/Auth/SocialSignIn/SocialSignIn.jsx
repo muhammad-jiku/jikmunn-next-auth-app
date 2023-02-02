@@ -5,12 +5,16 @@ import googleLogo from '../../../assets/images/google.png';
 import githubLogo from '../../../assets/images/github.png';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
 
 const SocialSignIn = () => {
   const router = useRouter();
 
   const handleGoogleLogin = async () => {
     console.log('google sign in');
+    await signIn('google', {
+      callbackUrl: 'http://localhost:3000/',
+    });
   };
   const handleGithubLogin = async () => {
     console.log('github sign in');
