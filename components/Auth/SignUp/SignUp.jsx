@@ -23,7 +23,9 @@ const SignUp = () => {
   let errorMessage;
 
   const onSubmit = async () => {
-    const username = watch('username').toLowerCase().trim();
+    const username = watch('username')
+      .toLowerCase()
+      .replace(/^[ \t]+|[ \t]+$/gm, '');
     const email = watch('email');
     const password = watch('password');
     const confirmPassword = watch('confirmPassword');

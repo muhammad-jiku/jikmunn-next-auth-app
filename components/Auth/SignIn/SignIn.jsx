@@ -1,5 +1,6 @@
 'use client';
 
+import { signIn } from 'next-auth/react';
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
@@ -21,13 +22,25 @@ const SignIn = () => {
     const email = watch('email');
     const password = watch('password');
 
-    const oldUser = {
-      email: email,
-      password: password,
-    };
+    try {
+      const oldUser = {
+        email,
+        password,
+      };
 
-    console.log(oldUser);
-    reset();
+      const data = await signIn('credentials', {
+        redirect: false,
+        email: oldUser?.email,
+        password: oldUser?.password,
+      });
+
+      if (data) {
+        console.log(data);
+        reset();
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
