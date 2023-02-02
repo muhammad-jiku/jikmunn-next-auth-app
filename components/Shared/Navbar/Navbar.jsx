@@ -1,23 +1,33 @@
 'use client';
 
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import React from 'react';
 
 const Navbar = () => {
+  const { data: session } = useSession();
+
   const menuItems = (
     <>
       <li>
         <Link href={`/`}>Home</Link>
-      </li>
-      <li>
-        <Link href={`/sign-in`}>Sign in</Link>
-      </li>
-      <li>
-        <Link href={`/sign-up`}>Sign up</Link>
-      </li>
-      <li>
-        <button className="btn btn-primary">Sign Out</button>
-      </li>
+      </li>{' '}
+      {session ? (
+        <>
+          <li>
+            <button className="btn btn-primary">Sign Out</button>
+          </li>
+        </>
+      ) : (
+        <>
+          <li>
+            <Link href={`/sign-in`}>Sign in</Link>
+          </li>
+          <li>
+            <Link href={`/sign-up`}>Sign up</Link>
+          </li>
+        </>
+      )}
     </>
   );
   return (

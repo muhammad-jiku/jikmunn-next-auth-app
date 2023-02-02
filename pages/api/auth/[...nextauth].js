@@ -22,7 +22,7 @@ export const authOptions = {
         if (!user) {
           throw new Error('Invalid Email or Password!');
         }
-
+        console.log(user);
         const isPasswordMatched = await bcrypt.compare(
           password,
           user?.password
