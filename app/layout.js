@@ -1,6 +1,7 @@
 import Footer from '@/components/Shared/Footer/Footer';
 import Navbar from '@/components/Shared/Navbar/Navbar';
 import '../styles/globals.css';
+import 'react-toastify/dist/ReactToastify.css';
 import Provider from './provider';
 
 export default function RootLayout({ children }) {
