@@ -5,8 +5,8 @@ import Link from 'next/link';
 import React from 'react';
 import Spinner from '../Shared/Spinner/Spinner';
 
-const HomePage = () => {
-  const { data: session, status } = useSession();
+const HomePage = ({ session }) => {
+  const { status } = useSession();
   console.log('session data ', session);
 
   return (
