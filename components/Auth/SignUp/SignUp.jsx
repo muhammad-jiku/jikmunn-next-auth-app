@@ -1,5 +1,6 @@
 'use client';
 
+import axios from 'axios';
 import Head from 'next/head';
 import Link from 'next/link';
 import React, { useState } from 'react';
@@ -31,12 +32,43 @@ const SignUp = () => {
       console.log('Something went wrong!');
     } else {
       const newUser = {
-        username: username,
-        email: email,
-        password: password,
+        username,
+        email,
+        password,
       };
-      console.log(newUser);
-      reset();
+
+      // sign up method
+      await fetch('/api/auth/sign-up', {
+        method: 'POST',
+        headers: {
+          // authorization: `Bearer ${localStorage?.getItem('accessToken')}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newUser),
+      })
+        .then((res) => {
+          // console.log('res ', res);
+          return res.json();
+        })
+        .then((data) => {
+          if (data) {
+            // console.log('data inside user token ', data);
+            // const accessToken = data?.accessToken;
+            // localStorage?.setItem('accessToken', accessToken);
+            // setSignUpToken(accessToken);
+            console.log(data);
+            console.log(data?.message);
+            // toast.success(data?.message);
+            reset();
+          } else {
+            console.log('Something went wrong!');
+            // toast.error('Something went wrong!');
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          // toast.error(err.message);
+        });
     }
   };
 
