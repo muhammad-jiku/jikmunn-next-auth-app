@@ -15,12 +15,10 @@ export default async function handler(req, res) {
     const { username, email, password } = await req.body;
 
     const checkExistingUser = await User.findOne({ email });
-
     if (checkExistingUser)
       return res.status(422).json({ message: 'User Already Exists...!' });
 
     const hashedPassword = await bcrypt.hash(password, 12);
-
     const newUser = await new User({
       username,
       email,
@@ -28,8 +26,7 @@ export default async function handler(req, res) {
     });
 
     const savedUser = await newUser.save();
-
-    // console.log('saved user ', savedUser);
+    console.log('saved user ', savedUser);
 
     res.status(200).json({
       message: 'User added successfully!!',

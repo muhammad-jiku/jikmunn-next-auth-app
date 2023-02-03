@@ -5,7 +5,6 @@ import React from 'react';
 const Page = () => {
   return (
     <>
-      {' '}
       <Head>
         <title>Jikmunn Next Auth - Create account</title>
         <meta content="width=device-width, initial-scale=1" name="viewport" />

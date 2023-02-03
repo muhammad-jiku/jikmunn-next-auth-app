@@ -5,10 +5,8 @@ import Head from 'next/head';
 import React from 'react';
 
 const Page = async () => {
-  // const session = await getServerSession(authOptions);
   return (
     <>
-      {' '}
       <Head>
         <title>Jikmunn Next Auth - Dashboard</title>
         <meta content="width=device-width, initial-scale=1" name="viewport" />

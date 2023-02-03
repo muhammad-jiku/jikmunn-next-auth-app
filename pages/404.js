@@ -5,7 +5,6 @@ import React from 'react';
 const NotFoundPage = () => {
   return (
     <>
-      {' '}
       <Head>
         <title>Jikmunn Next Auth - 404</title>
         <meta content="width=device-width, initial-scale=1" name="viewport" />

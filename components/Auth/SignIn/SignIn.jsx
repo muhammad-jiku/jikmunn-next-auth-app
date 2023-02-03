@@ -29,10 +29,12 @@ const SignIn = () => {
         password,
       };
 
+      const existedUser = JSON.stringify(oldUser);
+
       const data = await signIn('credentials', {
         redirect: false,
-        email: oldUser?.email,
-        password: oldUser?.password,
+        email: existedUser?.email,
+        password: existedUser?.password,
         callbackUrl: '/',
       });
 

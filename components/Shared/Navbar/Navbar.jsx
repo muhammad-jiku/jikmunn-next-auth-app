@@ -1,15 +1,11 @@
 'use client';
 
-// import { authOptions } from '@/pages/api/auth/[...nextauth]';
-// import { getServerSession } from 'next-auth';
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import React from 'react';
 
 const Navbar = async () => {
   const { data: session } = useSession();
-  // const session = await getServerSession(authOptions);
-  // const sessionData = JSON.stringify(session, null, 2);
 
   const signingOut = async () => {
     signOut();
@@ -45,12 +41,8 @@ const Navbar = async () => {
   return (
     <div className="navbar bg-base-300 font-bold">
       <div className="navbar-start">
-        <button
-          className="btn btn-ghost normal-case text-xs sm:text-sm md:text-xl text-primary"
-          //   onClick={() => navigate('/')}
-        >
+        <button className="btn btn-ghost normal-case text-xs sm:text-sm md:text-xl text-primary">
           <Link href={`/`}>
-            {/* <FontAwesomeIcon icon={faCode} className="mr-2" size="lg" />{' '} */}
             <span className="text-primary">Jikmunn Next Auth</span>
           </Link>
         </button>
