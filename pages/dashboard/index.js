@@ -1,8 +1,8 @@
 import Dashboard from '@/components/Dashboard/Dashboard';
 import Head from 'next/head';
 import React from 'react';
-import { authOptions } from '../api/auth/[...nextauth]';
-import { getServerSession } from 'next-auth/next';
+// import { authOptions } from '../api/auth/[...nextauth]';
+// import { getServerSession } from 'next-auth/next';
 
 const DashboardPage = () => {
   return (
@@ -20,21 +20,21 @@ const DashboardPage = () => {
 
 export default DashboardPage;
 
-export async function getServerSideProps(context) {
-  const session = await getServerSession(context.req, context.res, authOptions);
+// export async function getServerSideProps(context) {
+//   const session = await getServerSession(context.req, context.res, authOptions);
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
+//   if (!session) {
+//     return {
+//       redirect: {
+//         destination: '/',
+//         permanent: false,
+//       },
+//     };
+//   }
 
-  return {
-    props: {
-      session,
-    },
-  };
-}
+//   return {
+//     props: {
+//       session,
+//     },
+//   };
+// }

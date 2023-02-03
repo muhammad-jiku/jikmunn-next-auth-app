@@ -1,17 +1,18 @@
 'use client';
 
-import { authOptions } from '@/pages/api/auth/[...nextauth]';
-import { getServerSession } from 'next-auth';
+// import { authOptions } from '@/pages/api/auth/[...nextauth]';
+// import { getServerSession } from 'next-auth';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import React from 'react';
 import Spinner from '../Shared/Spinner/Spinner';
 
 const HomePage = async () => {
-  const { status } = useSession();
-  const session = await getServerSession(authOptions);
-  const sessionData = JSON.stringify(session, null, 2);
-  console.log('session data ', sessionData);
+  const { data: session, status } = useSession();
+  // const session = await getServerSession(authOptions);
+  // const sessionData = JSON.stringify(session, null, 2);
+  // console.log('session data ', sessionData);
+  console.log('session data ', session);
 
   return (
     <div>
@@ -24,7 +25,7 @@ const HomePage = async () => {
           <div className="hero min-h-screen">
             <div className="hero-content text-center">
               <div className="max-w-md">
-                {sessionData ? (
+                {session ? (
                   <>
                     <h1 className="text-2xl font-bold">
                       Hello, {sessionData?.user?.email}, We welcome you here!
@@ -33,7 +34,6 @@ const HomePage = async () => {
                 ) : (
                   <>
                     <h1 className="text-2xl font-bold">
-                      {' '}
                       Please Sign in to see welcome message
                     </h1>
                     <br />

@@ -45,12 +45,12 @@ const SignUp = () => {
         body: JSON.stringify(newUser),
       })
         .then((res) => {
-          // console.log("hola "'res ', res);
+          // console.log('res ', res);
           return res.json();
         })
         .then((data) => {
           if (data) {
-            // console.log("hola "'data inside user token ', data);
+            // console.log('data inside user token ', data);
             // const accessToken = data?.accessToken;
             // localStorage?.setItem('accessToken', accessToken);
             // setSignUpToken(accessToken);

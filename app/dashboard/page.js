@@ -1,11 +1,11 @@
 import Dashboard from '@/components/Dashboard/Dashboard';
-import { authOptions } from '@/pages/api/auth/[...nextauth]';
-import { getServerSession } from 'next-auth';
+// import { authOptions } from '@/pages/api/auth/[...nextauth]';
+// import { getServerSession } from 'next-auth';
 import Head from 'next/head';
 import React from 'react';
 
 const Page = async () => {
-  const session = await getServerSession(authOptions);
+  // const session = await getServerSession(authOptions);
   return (
     <>
       {' '}

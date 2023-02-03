@@ -1,15 +1,15 @@
 'use client';
 
-import { authOptions } from '@/pages/api/auth/[...nextauth]';
-import { getServerSession } from 'next-auth';
+// import { authOptions } from '@/pages/api/auth/[...nextauth]';
+// import { getServerSession } from 'next-auth';
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import React from 'react';
 
 const Navbar = async () => {
-  // const { data: session } = useSession();
-  const session = await getServerSession(authOptions);
-  const sessionData = JSON.stringify(session, null, 2);
+  const { data: session } = useSession();
+  // const session = await getServerSession(authOptions);
+  // const sessionData = JSON.stringify(session, null, 2);
 
   const signingOut = async () => {
     signOut();
@@ -22,7 +22,7 @@ const Navbar = async () => {
       <li>
         <Link href={`/dashboard`}>Dashboard</Link>
       </li>{' '}
-      {sessionData ? (
+      {session ? (
         <>
           <li>
             <button className="btn btn-primary" onClick={signingOut}>
