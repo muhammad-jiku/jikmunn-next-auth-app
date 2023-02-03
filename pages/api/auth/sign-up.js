@@ -1,12 +1,15 @@
 import User from '@/db/model/User';
 import databaseConnect from '@/db/util/connectDB';
 import bcrypt from 'bcryptjs';
+import { getServerSession } from 'next-auth';
+import { authOptions } from './[...nextauth]';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST')
     return res.status(500).json({ message: 'Something went wrong' });
 
   try {
+    const session = await getServerSession(req, res, authOptions);
     await databaseConnect();
 
     const { username, email, password } = req.body;
@@ -33,6 +36,10 @@ export default async function handler(req, res) {
       data: savedUser,
       //    accessToken: token,
     });
+
+    if (!session) {
+      res.status(401).json({ message: 'You must be logged in.' });
+    }
   } catch (err) {
     // console.log(err)
     res.status(500).json({ message: 'Something went wrong' });

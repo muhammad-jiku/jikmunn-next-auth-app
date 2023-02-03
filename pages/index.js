@@ -19,20 +19,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// export async function getStaticProps({ req }) {
-//   const session = await getSession({ req });
-
-//   if (!session) {
-//     return {
-//       redirect: {
-//         destination: '/sign-in',
-//         permanent: false,
-//       },
-//     };
-//   }
-
-//   return {
-//     props: { session },
-//   };
-// }
