@@ -3,7 +3,7 @@ import { getSession } from 'next-auth/react';
 import Head from 'next/head';
 import React from 'react';
 
-const Home = ({ session }) => {
+const Home = () => {
   return (
     <>
       <Head>
@@ -13,26 +13,26 @@ const Home = ({ session }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <HomePage session={session} />
+      <HomePage />
     </>
   );
 };
 
 export default Home;
 
-export async function getStaticProps({ req }) {
-  const session = await getSession({ req });
+// export async function getStaticProps({ req }) {
+//   const session = await getSession({ req });
 
-  if (!session) {
-    return {
-      redirect: {
-        destination: '/sign-in',
-        permanent: false,
-      },
-    };
-  }
+//   if (!session) {
+//     return {
+//       redirect: {
+//         destination: '/sign-in',
+//         permanent: false,
+//       },
+//     };
+//   }
 
-  return {
-    props: { session },
-  };
-}
+//   return {
+//     props: { session },
+//   };
+// }
