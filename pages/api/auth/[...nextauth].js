@@ -7,16 +7,13 @@ import GoogleProvider from 'next-auth/providers/google';
 import GitHubProvider from 'next-auth/providers/github';
 
 export const authOptions = {
-  session: {
-    strategy: 'jwt',
-  },
   // Configure one or more authentication providers
   providers: [
     // ...add more providers here
     CredentialsProvider({
       // The name to display on the sign in form (e.g. "Sign in with...")
       // id: 'credentials',
-      // name: 'Sign In',
+      name: 'credentials',
       // `credentials` is used to generate a form on the sign in page.
       // You can specify which fields should be submitted, by adding keys to the `credentials` object.
       // e.g. domain, username, password, 2FA token, etc.
@@ -62,6 +59,9 @@ export const authOptions = {
     signIn: '/sign-in',
   },
   secret: process.env.NEXTAUTH_SECRET,
+  session: {
+    strategy: 'jwt',
+  },
 };
 
 export default NextAuth(authOptions);

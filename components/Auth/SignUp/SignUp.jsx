@@ -36,7 +36,7 @@ const SignUp = () => {
       };
 
       // sign up method
-      await fetch('/api/auth/sign-up', {
+      await fetch('http://localhost:3000/api/auth/sign-up', {
         method: 'POST',
         headers: {
           // authorization: `Bearer ${localStorage?.getItem('accessToken')}`,
@@ -58,7 +58,7 @@ const SignUp = () => {
             console.log('sign up data message', data?.message);
             // toast.success(data?.message);
             reset();
-            router.push('/');
+            router.push('http://localhost:3000/');
           } else {
             console.log('Something went wrong!');
             // toast.error('Something went wrong!');

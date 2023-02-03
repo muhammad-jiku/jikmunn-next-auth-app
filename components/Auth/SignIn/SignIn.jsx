@@ -38,10 +38,10 @@ const SignIn = () => {
         callbackUrl: '/',
       });
 
-      if (data) {
+      if (data?.ok) {
         console.log('signin data', data);
         reset();
-        router.push('/');
+        router.push(data?.url);
       }
     } catch (err) {
       console.log('sign in err', err);

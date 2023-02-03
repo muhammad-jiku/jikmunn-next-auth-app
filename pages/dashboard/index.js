@@ -1,4 +1,5 @@
 import Dashboard from '@/components/Dashboard/Dashboard';
+import { getSession } from 'next-auth/react';
 import Head from 'next/head';
 import React from 'react';
 // import { authOptions } from '../api/auth/[...nextauth]';
@@ -20,21 +21,19 @@ const DashboardPage = () => {
 
 export default DashboardPage;
 
-// export async function getServerSideProps(context) {
-//   const session = await getServerSession(context.req, context.res, authOptions);
+export async function getServerSideProps({ req }) {
+  const session = await getSession({ req });
 
-//   if (!session) {
-//     return {
-//       redirect: {
-//         destination: '/',
-//         permanent: false,
-//       },
-//     };
-//   }
-
-//   return {
-//     props: {
-//       session,
-//     },
-//   };
-// }
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/sign-in',
+        premanent: false,
+      },
+    };
+  }
+  // authorize user return session
+  return {
+    props: { session },
+  };
+}
