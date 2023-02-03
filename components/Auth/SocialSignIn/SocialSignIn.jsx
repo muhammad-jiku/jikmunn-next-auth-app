@@ -29,12 +29,12 @@ const SocialSignIn = () => {
         onClick={handleGoogleLogin}
       >
         Continue with{' '}
-        <Image
+        <img
           src={googleLogo.src}
           //   src={`${googleLogo}`}
           alt="google"
-          width={100}
-          height={100}
+          //   width={100}
+          //   height={100}
           className="ml-2"
         />{' '}
       </button>{' '}
@@ -43,12 +43,12 @@ const SocialSignIn = () => {
         onClick={handleGithubLogin}
       >
         Continue with{' '}
-        <Image
+        <img
           src={githubLogo.src}
           //   src={`${githubLogo}`}
           alt="github"
-          width={100}
-          height={100}
+          //   width={100}
+          //   height={100}
           className="ml-2"
         />{' '}
       </button>
