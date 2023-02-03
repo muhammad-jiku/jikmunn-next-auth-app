@@ -46,7 +46,7 @@ export const authOptions = {
           throw new Error('Invalid Email or Password');
         }
 
-        return JSON.stringify(user);
+        return user;
       },
     }),
     GoogleProvider({
