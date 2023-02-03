@@ -35,7 +35,7 @@ export default function App({
             rel="stylesheet"
           /> */}
         </Head>
-        <SessionProvider session={session}>
+        <SessionProvider session={session} basePath="/user/api/auth">
           <MainLayout>
             <Component {...pageProps} />
           </MainLayout>
