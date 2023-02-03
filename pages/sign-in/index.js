@@ -1,11 +1,12 @@
-import SignIn from '@/components/Auth/SignIn/SignIn';
-import Head from 'next/head';
 import React from 'react';
+
+// internal imports
+import Head from 'next/head';
+import SignIn from '@/components/Auth/SignIn/SignIn';
 
 const SignInPage = () => {
   return (
     <>
-      {' '}
       <Head>
         <title>Jikmunn Next Auth - Sign In</title>
         <meta content="width=device-width, initial-scale=1" name="viewport" />

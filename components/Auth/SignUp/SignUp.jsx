@@ -1,10 +1,14 @@
 'use client';
 
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import React from 'react';
-import { useForm } from 'react-hook-form';
+
+// internal imports
+import Link from 'next/link';
 import SocialSignIn from '../SocialSignIn/SocialSignIn';
+
+// external imports
+import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
 
 const SignUp = () => {
   const {

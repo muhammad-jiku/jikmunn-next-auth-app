@@ -1,15 +1,25 @@
+// internal imports
 import User from '@/db/model/User';
 import databaseConnect from '@/db/util/connectDB';
+
+// external imports
 import bcrypt from 'bcryptjs';
 import NextAuth from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
 import GitHubProvider from 'next-auth/providers/github';
+import CredentialsProvider from 'next-auth/providers/credentials';
 
 export const authOptions = {
   // Configure one or more authentication providers
   providers: [
-    // ...add more providers here
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    }),
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET,
+    }), // ...add more providers here
     CredentialsProvider({
       // The name to display on the sign in form (e.g. "Sign in with...")
       // id: 'credentials',
@@ -45,14 +55,6 @@ export const authOptions = {
 
         return user;
       },
-    }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    }),
-    GitHubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
   pages: {

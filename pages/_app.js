@@ -1,7 +1,9 @@
-import { SessionProvider } from 'next-auth/react';
-
 import React, { useEffect, useState } from 'react';
 
+// external import
+import { SessionProvider } from 'next-auth/react';
+
+// internal imports
 import '../styles/globals.css';
 import Head from 'next/head';
 import MainLayout from '@/components/Layout/Layout';

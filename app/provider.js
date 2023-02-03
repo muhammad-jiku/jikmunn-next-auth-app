@@ -1,5 +1,6 @@
 'use client';
 
+// external import
 import { SessionProvider } from 'next-auth/react';
 
 const Provider = ({ children }) => {

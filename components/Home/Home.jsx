@@ -1,11 +1,15 @@
 'use client';
 
-// import { authOptions } from '@/pages/api/auth/[...nextauth]';
-// import { getServerSession } from 'next-auth';
-import { useSession } from 'next-auth/react';
-import Link from 'next/link';
 import React from 'react';
+
+// internal imports
+import Link from 'next/link';
 import Spinner from '../Shared/Spinner/Spinner';
+
+// external imports
+import { useSession } from 'next-auth/react';
+// import { getServerSession } from 'next-auth';
+// import { authOptions } from '@/pages/api/auth/[...nextauth]';
 
 const HomePage = async () => {
   const { data: session, status } = useSession();

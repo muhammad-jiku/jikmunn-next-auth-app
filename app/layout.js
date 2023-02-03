@@ -1,8 +1,8 @@
-import Footer from '@/components/Shared/Footer/Footer';
-import Navbar from '@/components/Shared/Navbar/Navbar';
+// internal imports
 import '../styles/globals.css';
 import Provider from './provider';
-
+import Footer from '@/components/Shared/Footer/Footer';
+import Navbar from '@/components/Shared/Navbar/Navbar';
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

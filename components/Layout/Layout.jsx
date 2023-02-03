@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+
+// internal imports
 import Footer from '../Shared/Footer/Footer';
 import Navbar from '../Shared/Navbar/Navbar';
 

@@ -1,6 +1,8 @@
-import SignUp from '@/components/Auth/SignUp/SignUp';
-import Head from 'next/head';
 import React from 'react';
+
+// internal imports
+import Head from 'next/head';
+import SignUp from '@/components/Auth/SignUp/SignUp';
 
 const Page = () => {
   return (

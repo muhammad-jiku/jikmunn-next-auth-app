@@ -1,11 +1,15 @@
 'use client';
 
-import { signIn } from 'next-auth/react';
+import React from 'react';
+
+// internal imports
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React from 'react';
-import { useForm } from 'react-hook-form';
 import SocialSignIn from '../SocialSignIn/SocialSignIn';
+
+// external imports
+import { signIn } from 'next-auth/react';
+import { useForm } from 'react-hook-form';
 
 const SignIn = () => {
   const {

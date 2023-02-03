@@ -1,7 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import React from 'react';
+
+// internal imports
+import Link from 'next/link';
 import NotFoundImg from '../../../assets/gifs/NotFound.gif';
 
 const NotFound = () => {

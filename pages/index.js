@@ -1,7 +1,11 @@
-import HomePage from '@/components/Home/Home';
-import { getSession } from 'next-auth/react';
-import Head from 'next/head';
 import React from 'react';
+
+// internal imports
+import Head from 'next/head';
+import HomePage from '@/components/Home/Home';
+
+// external import
+import { getSession } from 'next-auth/react';
 
 const Home = () => {
   return (

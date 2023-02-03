@@ -1,10 +1,13 @@
 'use client';
 
 import React from 'react';
+
+// internal imports
+import { useRouter } from 'next/navigation';
 import googleLogo from '../../../assets/images/google.png';
 import githubLogo from '../../../assets/images/github.png';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+
+// external import
 import { signIn } from 'next-auth/react';
 
 const SocialSignIn = () => {

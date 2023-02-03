@@ -1,5 +1,8 @@
+// internal imports
 import User from '@/db/model/User';
 import databaseConnect from '@/db/util/connectDB';
+
+// external imports
 import bcrypt from 'bcryptjs';
 // import { getServerSession } from 'next-auth';
 // import { authOptions } from './[...nextauth]';

@@ -1,6 +1,8 @@
-import NotFound from '@/components/Shared/NotFound/NotFound';
-import Head from 'next/head';
 import React from 'react';
+
+// internal imports
+import Head from 'next/head';
+import NotFound from '@/components/Shared/NotFound/NotFound';
 
 const NotFoundPage = () => {
   return (

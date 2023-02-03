@@ -1,9 +1,13 @@
-import Dashboard from '@/components/Dashboard/Dashboard';
-import { getSession } from 'next-auth/react';
-import Head from 'next/head';
 import React from 'react';
-// import { authOptions } from '../api/auth/[...nextauth]';
+
+// internal imports
+import Head from 'next/head';
+import Dashboard from '@/components/Dashboard/Dashboard';
+
+// external imports
+import { getSession } from 'next-auth/react';
 // import { getServerSession } from 'next-auth/next';
+// import { authOptions } from '../api/auth/[...nextauth]';
 
 const DashboardPage = () => {
   return (

@@ -1,8 +1,12 @@
 'use client';
 
-import { signOut, useSession } from 'next-auth/react';
-import Link from 'next/link';
 import React from 'react';
+
+// internal import
+import Link from 'next/link';
+
+//  external import
+import { signOut, useSession } from 'next-auth/react';
 
 const Navbar = async () => {
   const { data: session } = useSession();
