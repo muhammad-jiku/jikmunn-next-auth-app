@@ -19,7 +19,9 @@ const nextConfig = {
   },
 };
 
-module.exports = {
-  nextConfig,
-  basePath: '/user',
-};
+module.exports = nextConfig;
+
+// };module.exports = {
+//   nextConfig,
+//   basePath: '/user',
+// };
