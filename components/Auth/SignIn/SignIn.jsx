@@ -33,7 +33,8 @@ const SignIn = () => {
         password,
       };
 
-      const existedUser = JSON.stringify(oldUser);
+      // const existedUser = JSON.stringify(oldUser);
+      const existedUser = oldUser;
 
       const data = await signIn('credentials', {
         redirect: false,
@@ -56,13 +57,6 @@ const SignIn = () => {
     <>
       <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          {/* <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Welcome to the Jikmunn Next Authentication. Here you can track your billing
-              services cost. So, Login now to start your journey
-            </p>
-          </div> */}
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
             <div className="card-body">
               <form onSubmit={handleSubmit(onSubmit)}>

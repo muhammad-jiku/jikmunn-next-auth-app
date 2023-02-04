@@ -6,9 +6,9 @@ import React from 'react';
 import Link from 'next/link';
 
 //  external import
-import { signOut, useSession } from 'next-auth/react';
+import { getSession, signOut, useSession } from 'next-auth/react';
 
-const Navbar = async () => {
+const Navbar = () => {
   const { data: session } = useSession();
 
   const signingOut = async () => {
@@ -85,3 +85,15 @@ const Navbar = async () => {
 };
 
 export default Navbar;
+
+// export async function getServerSideProps({ req }) {
+//   const session = await getSession({ req });
+
+//   if (!session) {
+//     return {};
+//   }
+//   // authorize user return session
+//   return {
+//     props: { session },
+//   };
+// }

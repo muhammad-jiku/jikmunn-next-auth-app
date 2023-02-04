@@ -54,23 +54,16 @@ const SignUp = () => {
         })
         .then((data) => {
           if (data) {
-            // console.log('data inside user token ', data);
-            // const accessToken = data?.accessToken;
-            // localStorage?.setItem('accessToken', accessToken);
-            // setSignUpToken(accessToken);
             console.log('sign up data ', data);
             console.log('sign up data message', data?.message);
-            // toast.success(data?.message);
             reset();
             router.push('http://localhost:3000/');
           } else {
             console.log('Something went wrong!');
-            // toast.error('Something went wrong!');
           }
         })
         .catch((err) => {
           console.log('sign up err', err);
-          // toast.error(err.message);
         });
     }
   };
@@ -79,13 +72,6 @@ const SignUp = () => {
     <>
       <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          {/* <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Registration now!</h1>
-            <p className="py-6">
-              Welcome to the Jikmunn Billing. Here you can track your billing
-              services cost. So, Registration now to start your journey!
-            </p>
-          </div> */}
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl">
             <div className="card-body">
               <form onSubmit={handleSubmit(onSubmit)}>
@@ -104,10 +90,6 @@ const SignUp = () => {
                         value: true,
                         message: 'Username is required',
                       },
-                      // maxLength: {
-                      //   value: 20,
-                      //   message: 'Name can not be more than 20 letters',
-                      // },
                     })}
                     style={{ backgroundColor: 'white' }}
                   />
@@ -115,9 +97,6 @@ const SignUp = () => {
                     {errors?.displayName?.type === 'required' && (
                       <span>{errors?.displayName?.message}</span>
                     )}
-                    {/* {errors?.displayName?.type === 'maxLength' && (
-                    <span>{errors?.displayName?.message}</span>
-                  )} */}
                   </p>
                 </div>
 

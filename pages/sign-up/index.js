@@ -4,7 +4,7 @@ import React from 'react';
 import Head from 'next/head';
 import SignUp from '@/components/Auth/SignUp/SignUp';
 
-const index = () => {
+const SignUpPage = () => {
   return (
     <>
       <Head>
@@ -18,4 +18,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default SignUpPage;

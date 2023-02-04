@@ -1,5 +1,5 @@
 // external import
-const { default: mongoose } = require('mongoose');
+const mongoose = require('mongoose');
 // internal import
 const userSchema = require('../schema/userSchema');
 

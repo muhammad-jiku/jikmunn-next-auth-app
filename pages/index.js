@@ -7,7 +7,7 @@ import HomePage from '@/components/Home/Home';
 // external import
 import { getSession } from 'next-auth/react';
 
-const Home = () => {
+const HomePageIndex = () => {
   return (
     <>
       <Head>
@@ -21,4 +21,16 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePageIndex;
+
+// export async function getServerSideProps({ req }) {
+//   const session = await getSession({ req });
+//   console.log('session:::::', session);
+//   if (!session) {
+//     return {};
+//   }
+//   // authorize user return session
+//   return {
+//     props: { session },
+//   };
+// }

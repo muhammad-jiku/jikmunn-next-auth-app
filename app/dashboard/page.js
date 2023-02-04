@@ -8,7 +8,7 @@ import Dashboard from '@/components/Dashboard/Dashboard';
 // import { getServerSession } from 'next-auth';
 // import { authOptions } from '@/pages/api/auth/[...nextauth]';
 
-const Page = async () => {
+const Page = () => {
   return (
     <>
       <Head>

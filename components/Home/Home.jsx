@@ -6,16 +6,12 @@ import React from 'react';
 import Link from 'next/link';
 import Spinner from '../Shared/Spinner/Spinner';
 
-// external imports
+// external import
 import { useSession } from 'next-auth/react';
-// import { getServerSession } from 'next-auth';
-// import { authOptions } from '@/pages/api/auth/[...nextauth]';
 
-const HomePage = async () => {
+const HomePage = () => {
   const { data: session, status } = useSession();
-  // const session = await getServerSession(authOptions);
-  // const sessionData = JSON.stringify(session, null, 2);
-  // console.log('session data ', sessionData);
+  // const { status } = useSession();
   console.log('session data ', session);
 
   return (
@@ -32,7 +28,7 @@ const HomePage = async () => {
                 {session ? (
                   <>
                     <h1 className="text-2xl font-bold">
-                      Hello, {sessionData?.user?.email}, We welcome you here!
+                      Hello, {session?.user?.email}, We welcome you here!
                     </h1>
                   </>
                 ) : (
