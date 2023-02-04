@@ -14,7 +14,8 @@ const SocialSignIn = () => {
     console.log('google sign in');
     try {
       await signIn('google', {
-        callbackUrl: 'http://localhost:3000/',
+        // callbackUrl: 'http://localhost:3000',
+        callbackUrl: 'https://jikmunn-next-auth-app.vercel.app',
       });
     } catch (err) {
       console.log('google error => ', err);
@@ -24,7 +25,8 @@ const SocialSignIn = () => {
     console.log('github sign in');
     try {
       await signIn('github', {
-        callbackUrl: 'http://localhost:3000/',
+        // callbackUrl: 'http://localhost:3000',
+        callbackUrl: 'https://jikmunn-next-auth-app.vercel.app',
       });
     } catch (err) {
       console.log('github error => ', err);

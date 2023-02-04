@@ -40,7 +40,8 @@ const SignUp = () => {
       };
 
       // sign up method
-      await fetch('http://localhost:3000/api/auth/sign-up', {
+      // await fetch('http://localhost:3000/api/auth/sign-up', {
+      await fetch('https://jikmunn-next-auth-app.vercel.app/api/auth/sign-up', {
         method: 'POST',
         headers: {
           // authorization: `Bearer ${localStorage?.getItem('accessToken')}`,
