@@ -58,7 +58,7 @@ const SignUp = () => {
             console.log('sign up data ', data);
             console.log('sign up data message', data?.message);
             reset();
-            router.push('http://localhost:3000/');
+            router.push('https://jikmunn-next-auth-app.vercel.app/');
           } else {
             console.log('Something went wrong!');
           }
