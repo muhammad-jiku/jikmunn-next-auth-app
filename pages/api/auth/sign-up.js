@@ -1,13 +1,23 @@
 // internal imports
 import User from '@/db/model/User';
 import databaseConnect from '@/db/util/connectDB';
+import initMiddleware from '@/lib/initMiddleware';
 
-// external import
+// external imports
 import bcrypt from 'bcryptjs';
+import Cors from 'cors';
+
+const cors = initMiddleware(
+  Cors({
+    methods: ['POST'],
+  })
+);
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST')
-    return res.status(500).json({ message: 'Something went wrong' });
+  // if (req.method !== 'POST')
+  //   return res.status(500).json({ message: 'Something went wrong' });
+
+  await cors(req, res);
 
   try {
     databaseConnect();

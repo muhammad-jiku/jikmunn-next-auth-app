@@ -8,6 +8,7 @@ import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import GitHubProvider from 'next-auth/providers/github';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import MongoDBAdapter from '@/lib/MongoDBAdapter';
 
 export const authOptions = {
   // Configure one or more authentication providers
@@ -57,6 +58,7 @@ export const authOptions = {
       },
     }),
   ],
+  adapter: MongoDBAdapter(),
   pages: {
     signIn: '/sign-in',
   },
