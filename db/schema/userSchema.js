@@ -19,10 +19,6 @@ const userSchema = mongoose.Schema(
       type: String,
       minLength: [6, 'Password must be at least 3 letters'],
     },
-    role: {
-      type: String,
-      default: 'user',
-    },
   },
   { timestamps: true }
 );
